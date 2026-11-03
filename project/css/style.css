@@ -49,6 +49,7 @@ nav a.active {
 
 .page-layout {
   display: flex;
+  align-items: flex-start;
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
@@ -65,8 +66,33 @@ main {
 
 aside {
   flex: 1;
+  min-width: 220px;
   padding: 1.5rem;
   background-color: #f4f1ea;
+}
+
+.club-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.club-photos img,
+.contact-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.club-photos img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.contact-image {
+  max-width: 760px;
+  margin-top: 1.5rem;
 }
 
 footer {
@@ -86,8 +112,21 @@ footer a {
 }
 
 @media (max-width: 600px) {
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
   .page-layout {
     flex-direction: column;
     padding: 1rem;
+  }
+
+  aside {
+    min-width: 0;
+  }
+
+  .club-photos {
+    grid-template-columns: 1fr;
   }
 }
